@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>WebDevBlog</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto:400,700&   display=swap&subset=cyrillic,cyrillic-ext,latin-ext"
+        rel="stylesheet">
+</head>
+
+<body>
+    <svg style="display: none">
+        <symbol id="facebook" viewBox="0 0 29.94 29.94">
+            <g>
+                <path d="M27.56,0.684H2.383C1.065,0.684,0,1.748,0,3.064v23.813c0,1.312,1.065,2.379,2.383,2.379H27.56
+                c1.312,0,2.38-1.066,2.38-2.379V3.064C29.939,1.748,28.871,0.684,27.56,0.684z M20.125,9.167c-0.619-0.362-1.11-0.648-1.727-0.648
+                c-0.604,0-1.12,0.151-1.384,0.405c-0.264,0.252-0.395,0.74-0.395,1.461v1.067h3.229l-0.699,2.968h-2.53v9.862h-4.056V14.42H10.67
+                v-2.968h1.895v-1.133c0-1.193,0.143-1.907,0.425-2.496c0.281-0.587,0.826-1.241,1.584-1.611c0.757-0.369,1.877-0.555,3.036-0.555
+                c1.188,0,2.116,0.396,3.254,0.715L20.125,9.167z" />
+            </g>
+        </symbol>
+        <symbol id="twitter" viewBox="0 0 512 512">
+            <path
+                d="m475.074219 0h-438.148438c-20.394531 0-36.925781 16.53125-36.925781 36.925781v438.148438c0 20.394531 16.53125 36.925781 36.925781 36.925781h438.148438c20.394531 0 36.925781-16.53125 36.925781-36.925781v-438.148438c0-20.394531-16.53125-36.925781-36.925781-36.925781zm-102.1875 199.601562c.113281 2.519532.167969 5.050782.167969 7.59375 0 77.644532-59.101563 167.179688-167.183594 167.183594h.003906-.003906c-33.183594 0-64.0625-9.726562-90.066406-26.394531 4.597656.542969 9.277343.8125 14.015624.8125 27.53125 0 52.867188-9.390625 72.980469-25.152344-25.722656-.476562-47.410156-17.464843-54.894531-40.8125 3.582031.6875 7.265625 1.0625 11.042969 1.0625 5.363281 0 10.558593-.722656 15.496093-2.070312-26.886718-5.382813-47.140624-29.144531-47.140624-57.597657 0-.265624 0-.503906.007812-.75 7.917969 4.402344 16.972656 7.050782 26.613281 7.347657-15.777343-10.527344-26.148437-28.523438-26.148437-48.910157 0-10.765624 2.910156-20.851562 7.957031-29.535156 28.976563 35.554688 72.28125 58.9375 121.117187 61.394532-1.007812-4.304688-1.527343-8.789063-1.527343-13.398438 0-32.4375 26.316406-58.753906 58.765625-58.753906 16.902344 0 32.167968 7.144531 42.890625 18.566406 13.386719-2.640625 25.957031-7.53125 37.3125-14.261719-4.394531 13.714844-13.707031 25.222657-25.839844 32.5 11.886719-1.421875 23.214844-4.574219 33.742187-9.253906-7.863281 11.785156-17.835937 22.136719-29.308593 30.429687zm0 0" />
+        </symbol>
+        <symbol id="cursorHand" viewBox="0 0 502 502">
+            <g>
+                <path d="M461.63,251.914l-15.038-34.207c-0.89-2.026-1.879-4.035-2.938-5.968c-6.272-11.469-16.565-20.103-28.981-24.313
+                    c-12.377-4.196-25.794-3.636-37.784,1.578l-5.795,2.52l-7.405-16.845c-0.001-0.002-0.002-0.005-0.003-0.007l-5.456-12.41
+                    c-4.662-10.604-13.188-18.74-24.007-22.907c-10.766-4.146-22.478-3.845-32.987,0.846l-19.228,8.33
+                    c-3.557-5.06-7.877-8.921-12.914-11.528c-10.521-5.445-23.178-4.987-37.621,1.363l-13.759,6.048l-17.81-40.514
+                    c-7.25-16.493-20.706-27.81-36.916-31.05c-15.239-3.046-30.755,1.265-41.51,11.53c-16.139,15.402-20.776,38.528-11.822,58.895
+                    l67.466,154.435c-5.649-1.143-11.602-1.666-17.643-1.519c-15.691,0.387-29.8,5.377-39.247,13.79
+                    c-0.62,0.402-1.203,0.878-1.737,1.428c-9.494,9.777-14.174,21.604-13.537,34.201c0.797,15.743,9.79,31.268,26.006,44.898
+                    c0.082,0.069,0.165,0.137,0.25,0.203l138.681,109.147c1.794,1.413,3.979,2.142,6.186,2.142c1.362,0,2.732-0.278,4.023-0.846
+                    l198.672-87.337c3.425-1.505,5.723-4.797,5.956-8.531l1.081-17.312C488.713,341.548,480.351,294.499,461.63,251.914z
+                     M465.853,386.728l-0.702,11.231L277.55,480.431L143.715,375.097c-11.612-9.796-18.28-20.623-18.78-30.498
+                    c-0.324-6.402,1.87-12.364,6.526-17.748c0.336-0.267,0.658-0.558,0.964-0.873c11.971-12.329,41.824-13.181,57.414-1.748
+                    l34.447,33.084c1.939,1.862,4.434,2.788,6.926,2.788c2.627,0,5.25-1.029,7.214-3.073c3.826-3.983,3.698-10.314-0.285-14.14
+                    l-33.516-32.191l-76.648-175.452c-6.717-15.28-0.627-28.821,7.313-36.398c5.953-5.682,15.066-8.129,23.782-6.386
+                    c9.87,1.973,17.87,8.893,22.527,19.486l58.06,132.072c1.647,3.747,5.313,5.978,9.16,5.978c1.344,0,2.71-0.272,4.019-0.848
+                    c5.056-2.223,7.353-8.123,5.13-13.179l-32.201-73.249l13.76-6.049c8.636-3.795,15.493-4.438,20.379-1.909
+                    c3.458,1.79,6.373,5.338,8.663,10.546l34.24,77.888c1.647,3.747,5.313,5.978,9.16,5.978c1.344,0,2.71-0.272,4.019-0.848
+                    c5.056-2.223,7.353-8.123,5.13-13.179l-30.194-68.685l18.32-7.937c0.039-0.017,0.077-0.033,0.115-0.051
+                    c5.625-2.521,11.904-2.685,17.681-0.46c5.809,2.237,10.385,6.602,12.886,12.292l40.687,92.565
+                    c1.647,3.747,5.313,5.978,9.16,5.978c1.344,0,2.71-0.272,4.019-0.848c5.056-2.222,7.353-8.123,5.13-13.179l-19.779-44.992
+                    l5.722-2.488c15.467-6.727,33.2-0.713,41.244,13.994c0.783,1.431,1.514,2.916,2.173,4.416l15.039,34.208
+                    C460.762,299.638,468.554,343.473,465.853,386.728z" />
+                <path d="M426.561,384.075l-9.865,4.327c-5.058,2.218-7.359,8.116-5.141,13.174c1.645,3.751,5.313,5.986,9.163,5.986
+                    c1.341,0,2.705-0.271,4.011-0.845l9.865-4.327c5.058-2.218,7.359-8.116,5.141-13.174
+                    C437.518,384.158,431.62,381.856,426.561,384.075z" />
+                <path d="M386.77,401.751l-105.353,46.208c-5.058,2.218-7.359,8.116-5.141,13.174c1.645,3.751,5.313,5.986,9.163,5.986
+                    c1.341,0,2.705-0.271,4.011-0.844l105.353-46.209c5.058-2.218,7.359-8.116,5.141-13.174
+                    C397.727,401.835,391.83,399.533,386.77,401.751z" />
+                <path d="M127.017,45.197c0.976,4.727,5.139,7.98,9.783,7.98c0.67,0,1.351-0.068,2.032-0.208
+                    c5.409-1.117,8.888-6.407,7.771-11.816l-6.85-33.174c-1.116-5.408-6.408-8.885-11.815-7.771
+                    c-5.409,1.116-8.888,6.406-7.771,11.815L127.017,45.197z" />
+                <path d="M41.035,46.913c2.909-4.696,1.459-10.859-3.236-13.767l-6.907-4.277c-4.696-2.909-10.859-1.46-13.767,3.236
+                    c-2.909,4.696-1.459,10.859,3.236,13.767l6.907,4.277c1.64,1.016,3.459,1.5,5.256,1.5C35.871,51.649,39.143,49.968,41.035,46.913
+                    z" />
+                <path d="M60.454,72.245l21.332,14.031c1.694,1.114,3.6,1.646,5.486,1.646c3.253,0,6.443-1.585,8.365-4.506
+                    c3.035-4.614,1.754-10.815-2.86-13.85L71.444,55.535c-4.615-3.035-10.815-1.754-13.85,2.86
+                    C54.559,63.009,55.84,69.21,60.454,72.245z" />
+                <path
+                    d="M86.622,135.491c-1.117-5.408-6.405-8.886-11.816-7.771l-33.174,6.85c-5.409,1.116-8.888,6.406-7.771,11.815
+                    c0.976,4.727,5.139,7.98,9.783,7.98c0.67,0,1.351-0.068,2.033-0.208l33.174-6.85C84.26,146.19,87.739,140.9,86.622,135.491z" />
+                <path d="M111.775,186.982c-4.615-3.036-10.816-1.754-13.85,2.86l-18.614,28.301c-3.035,4.614-1.754,10.815,2.86,13.85
+                    c1.694,1.114,3.6,1.646,5.486,1.646c3.253,0,6.443-1.585,8.364-4.506l18.614-28.301
+                    C117.67,196.218,116.389,190.017,111.775,186.982z" />
+                <path d="M221.355,105.18c0.976,4.726,5.139,7.979,9.783,7.979c0.67,0,1.35-0.068,2.033-0.208l22.116-4.567
+                    c5.409-1.117,8.888-6.407,7.771-11.816c-1.117-5.409-6.406-8.888-11.816-7.771l-22.116,4.567
+                    C223.717,94.481,220.238,99.771,221.355,105.18z" />
+                <path d="M293.34,100.315c0.67,0,1.351-0.068,2.033-0.208l6.912-1.427c5.409-1.117,8.888-6.407,7.771-11.816
+                    c-1.117-5.408-6.404-8.887-11.816-7.771l-6.912,1.427c-5.409,1.117-8.888,6.407-7.771,11.816
+                    C284.533,97.062,288.696,100.315,293.34,100.315z" />
+                <path d="M190.907,61.982c1.694,1.114,3.6,1.646,5.486,1.646c3.253,0,6.444-1.585,8.364-4.506l18.614-28.301
+                    c3.035-4.614,1.754-10.815-2.86-13.85c-4.615-3.036-10.816-1.754-13.85,2.86l-18.614,28.301
+                    C185.012,52.746,186.293,58.947,190.907,61.982z" />
+            </g>
+        </symbol>
+    </svg>
+    <svg style="display: none">
+        <symbol id="telephone" viewBox="0 0 512 512">
+            <g>
+                <path d="M366,0H146c-20.678,0-37.5,16.822-37.5,37.5v437c0,20.678,16.822,37.5,37.5,37.5h220c20.678,0,37.5-16.822,37.5-37.5v-437
+                    C403.5,16.822,386.678,0,366,0z M388.5,407H176c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h212.5v52.5
+                    c0,12.407-10.093,22.5-22.5,22.5H146c-12.407,0-22.5-10.093-22.5-22.5V422H146c4.142,0,7.5-3.358,7.5-7.5
+                    c0-4.142-3.358-7.5-7.5-7.5h-22.5V75h265V407z M388.5,60h-265V37.5c0-12.407,10.093-22.5,22.5-22.5h220
+                    c12.407,0,22.5,10.093,22.5,22.5V60z" />
+            </g>
+        </symbol>
+    </svg>
+
+    <header>
+        <div class="topHeader">
+            <div class="container">
+                <section class="topHeaderInner">
+                    <h2 class="logo">WebDevBlog</h2>
+                    <nav class="menuNav">
+                        <ul class="menuLink">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Servicing</a></li>
+                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><img src="img/header/lupa.png"></li>
+                        </ul>
+                        <span class="burgerMenu" id="burgerMenu">
+                            <div class="burgerLine"></div>
+                        </span>
+                    </nav>
+                </section>
+            </div>
+        </div>
+        <div class="headerButton">
+            <div class="container">
+                <section class="headerButtonInner">
+                    <h1 class="headerButtonTitle">Web dewelopment project</h1>
+                    <h3 class="headerButtonText">Very suitable to support all web development projects</h3>
+                    <div class="but">
+                        <button class="ourService headerBut">our service</button>
+                        <button class="now headerBut">hire is now</button>
+                    </div>
+                    <div class="arrow"><img src="img/header/middleSlider.png" class="arrowInner"></div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <div class="worth">
+        <div class="container">
+            <div class="worthInner">
+                <section class="worthTitle">
+                    <h3 class="title">About Us</h3>
+                    <h3 class="subTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</h3>
+                </section>
+                <div class="worthBlocks">
+                    <div class="awesome">
+                        <img src="img/aboutUs/internet.png" alt="">
+                        <p class="worthInnerTitle">Awesome Icons</p>
+                        <p class="worthInnerSubtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor</p>
+                    </div>
+                    <div class="page">
+                        <img src="img/aboutUs/transfer.png" alt="">
+                        <p class="worthInnerTitle">One Page</p>
+                        <p class="worthInnerSubtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor</p>
+                    </div>
+                    <div class="fully">
+                        <img src="img/aboutUs/head.png" alt="">
+                        <p class="worthInnerTitle">Fully Responsive</p>
+                        <p class="worthInnerSubtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                            eiusmod tempor</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="service">
+        <div class="container">
+            <div class="serviceInner">
+                <section class="serviceTitle">
+                    <h3 class="title">Our Services</h3>
+                    <h3 class="subTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h3>
+                </section>
+                <div class="serviceBlocks">
+                    <div class="serviceBlock1">
+                        <svg class="telephone">
+                            <use xlink:href="#telephone"></use>
+                        </svg>
+                        <p class="blockTitle">Research</p>
+                        <p class="blockSubtitle">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum iti atque corrupti quos.</p>
+                        <button>read more</button>
+                        <svg class="cursorHand">
+                            <use xlink:href="#cursorHand"></use>
+                        </svg>
+                    </div>
+                    <div class="serviceBlock2">
+                        <svg class="telephone">
+                            <use xlink:href="#telephone"></use>
+                        </svg>
+                        <p class="blockTitle">Portfolio</p>
+                        <p class="blockSubtitle">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum iti atque corrupti quos.</p>
+                        <button>read more</button>
+                        <svg class="cursorHand">
+                            <use xlink:href="#cursorHand"></use>
+                        </svg>
+                    </div>
+                    <div class="serviceBlock3">
+                        <svg class="telephone">
+                            <use xlink:href="#telephone"></use>
+                        </svg>
+                        <p class="blockTitle">Support</p>
+                        <p class="blockSubtitle">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum iti atque corrupti quos.</p>
+                        <button>read more</button>
+                        <svg class="cursorHand">
+                            <use xlink:href="#cursorHand"></use>
+                        </svg>
+                    </div>
+                    <div class="serviceBlock4">
+                        <svg class="telephone">
+                            <use xlink:href="#telephone"></use>
+                        </svg>
+                        <p class="blockTitle">Documentation</p>
+                        <p class="blockSubtitle">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum iti atque corrupti quos.</p>
+                        <button>read more</button>
+                        <svg class="cursorHand">
+                            <use xlink:href="#cursorHand"></use>
+                        </svg>
+                    </div>
+                    <div class="serviceBlock5">
+                        <svg class="telephone">
+                            <use xlink:href="#telephone"></use>
+                        </svg>
+                        <p class="blockTitle">Development</p>
+                        <p class="blockSubtitle">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum iti atque corrupti quos.</p>
+                        <button>read more</button>
+                        <svg class="cursorHand">
+                            <use xlink:href="#cursorHand"></use>
+                        </svg>
+                    </div>
+                    <div class="serviceBlock6">
+                        <svg class="telephone">
+                            <use xlink:href="#telephone"></use>
+                        </svg>
+                        <p class="blockTitle">Design</p>
+                        <p class="blockSubtitle">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                            blanditiis praesentium voluptatum iti atque corrupti quos.</p>
+                        <button>read more</button>
+                        <svg class="cursorHand">
+                            <use xlink:href="#cursorHand"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="works">
+        <div class="container">
+            <div class="worksInner">
+                <section class="worksTitle">
+                    <h3 class="title">Latest Works</h3>
+                    <h3 class="subTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h3>
+                </section>
+                <div class="worksButtonInner">
+                    <button class="worksButton small">ALL</button>
+                    <button class="worksButton similar">WEB DESIGN</button>
+                    <button class="worksButton similar">UI/UX DESIGN</button>
+                    <button class="worksButton similar">MOCKUPS</button>
+                </div>
+                <div class="worksBlock">
+                    <div class="worksBlock1">
+                        <p>Hand Watch <span>ui/ux design</span></p>
+                        <img class="worksBlockImg" src="img/works/one.png" alt="#">
+                        <div class="worksBlockHide"></div>
+                    </div>
+                    <div class="worksBlock2">
+                        <p><span></span></p>
+                        <img class="worksBlockImg" src="img/works/two.png" alt="#">
+                        <div class="worksBlockHide"></div>
+                    </div>
+                    <div class="worksBlock3">
+                        <p><span></span></p>
+                        <img class="worksBlockImg" src="img/works/three.png" alt="#">
+                        <div class="worksBlockHide"></div>
+                    </div>
+                    <div class="worksBlock4">
+                        <p><span></span></p>
+                        <img class="worksBlockImg" src="img/works/four.png" alt="#">
+                        <div class="worksBlockHide"></div>
+                    </div>
+                    <div class="worksBlock5">
+                        <p><span></span></p>
+                        <img class="worksBlockImg" src="img/works/five.png" alt="#">
+                        <div class="worksBlockHide"></div>
+                    </div>
+                    <div class="worksBlock6">
+                        <p><span></span></p>
+                        <img class="worksBlockImg" src="img/works/six.png" alt="#">
+                        <div class="worksBlockHide"></div>
+                    </div>
+                </div>
+                <button class="viewAll">VIEW ALL</button>
+            </div>
+        </div>
+    </div>
+    <div class="price">
+        <div class="container">
+            <div class="priceInner">
+                <section class="priceTitle">
+                    <h3 class="title">Pricing Plan</h3>
+                    <h3 class="subTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h3>
+                </section>
+                <div class="tarifBlock">
+                    <div class="tarifFree priceBlock">
+                        <div class="tarifPrice">
+                            <h6>Free</h6>
+                            <h5><sup>$</sup>00<span> per month</span></h5>
+                        </div>
+                        <img class="blueBg" src="img/price/blueBg.png" alt="">
+                        <div class="included">
+                            <ul class="includedInner">
+                                <li>30 Free Trail</li>
+                                <li>5 Free Projects</li>
+                                <li>PHP 5 Enabled</li>
+                                <li>24/7 Supports</li>
+                            </ul>
+                        </div>
+                        <button class="orderNow">
+                            ORDER NOW
+                        </button>
+                    </div>
+
+                    <div class="tarifBasic priceBlock">
+                        <div class="tarifPrice">
+                            <h6>Basic</h6>
+                            <h5><sup>$</sup>50<span> per month</span></h5>
+                        </div>
+                        <img class="blueBg" src="img/price/blueBg.png" alt="">
+                        <div class="included">
+                            <ul class="includedInner">
+                                <li>30 Free Trail</li>
+                                <li>5 Free Projects</li>
+                                <li>PHP 5 Enabled</li>
+                                <li>24/7 Supports</li>
+                            </ul>
+                        </div>
+                        <button class="orderNow">
+                            ORDER NOW
+                        </button>
+                    </div>
+
+                    <div class="tarifUltimates priceBlock">
+                        <div class="tarifPrice">
+                            <h6>Ultimates</h6>
+                            <h5><sup>$</sup>99<span> per month</span></h5>
+                        </div>
+                        <img class="blueBg" src="img/price/blueBg.png" alt="">
+                        <div class="included">
+                            <ul class="includedInner">
+                                <li>30 Free Trail</li>
+                                <li>5 Free Projects</li>
+                                <li>PHP 5 Enabled</li>
+                                <li>24/7 Supports</li>
+                            </ul>
+                        </div>
+                        <button class="orderNow">
+                            ORDER NOW
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="team">
+        <div class="container">
+            <div class="teamInner">
+                <div class="teamTitle">
+                    <h3 class="title">Our Team Member</h3>
+                    <h3 class="subTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h3>
+                </div>
+                <div class="teamPhoto">
+                    <div class="teamMember1 teamMember">
+                        <img src="img/Team/member1.png" class="teamMemberPhoto" alt="">
+                        <div class="memberName">
+                            <p class="name">John Doe</p>
+                            <p class="prof">General Manager</p>
+                        </div>
+                        <div class="memberSocial">
+                            <svg class="icon">
+                                <use xlink:href="#facebook"></use>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#twitter"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="teamMember2 teamMember">
+                        <img src="img/Team/member2.png" class="teamMemberPhoto" alt="">
+                        <div class="memberName">
+                            <p class="name">Alexa Biru</p>
+                            <p class="prof">Office Director</p>
+                        </div>
+                        <div class="memberSocial">
+                            <svg class="icon">
+                                <use xlink:href="#facebook"></use>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#twitter"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="teamMember3 teamMember">
+                        <img src="img/Team/member3.png" class="teamMemberPhoto" alt="">
+                        <div class="memberName">
+                            <p class="name">Ronobir Sing</p>
+                            <p class="prof">Admin</p>
+                        </div>
+                        <div class="memberSocial">
+                            <svg class="icon">
+                                <use xlink:href="#facebook"></use>
+                            </svg>
+                            <svg class="icon">
+                                <use xlink:href="#twitter"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="teamSlide">
+                    <div class="teamSlideInner"></div>
+                    <div class="teamSlideInner"></div>
+                    <div class="teamSlideInner"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog">
+        <div class="container">
+            <div class="blogInner">
+                <div class="blogTitle">
+                    <h3 class="title">Blog</h3>
+                    <h3 class="subTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h3>
+                </div>
+                <div class="blogPostInner">
+                    <div class="blogPost">
+                        <img src="img/blog/seoImg.png" class="newsImg" alt="">
+                        <div class="blogPostPartText">
+                            <div class="blogPostTitle">
+                                <p>SEO Quis Vestibulum</p>
+                            </div>
+                            <div class="blogPostData">
+                                <div class="blogPostDataInner">
+                                    <img src="img/blog/data.png" alt="">
+                                    <p>14.07.2015</p>
+                                </div>
+                                <div class="blogPostAuthorInner">
+                                    <img src="img/blog/list.png" alt="">
+                                    <p>Development</p>
+                                </div>
+                            </div>
+                            <div class="blogPostText">
+                                Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                nisi ut aliquip ex ea commodo consequat...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blogPost">
+                        <div class="blogPostPartText">
+                            <div class="blogPostTitle">
+                                <p>SEO Quis Vestibulum</p>
+                            </div>
+                            <div class="blogPostData">
+                                <div class="blogPostDataInner">
+                                    <img src="img/blog/data.png" alt="">
+                                    <p>14.07.2015</p>
+                                </div>
+                                <div class="blogPostAuthorInner">
+                                    <img src="img/blog/list.png" alt="">
+                                    <p>Development</p>
+                                </div>
+                            </div>
+                            <div class="blogPostText">
+                                Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                nisi ut aliquip ex ea commodo consequat...
+                            </div>
+                        </div>
+                        <img src="img/blog/seoImg2.png" class="newsImg" alt="">
+                    </div>
+                    <div class="blogPost">
+                        <img src="img/blog/seoImg2.png" class="newsImg" alt="">
+                        <div class="blogPostPartText">
+                            <div class="blogPostTitle">
+                                <p>SEO Quis Vestibulum</p>
+                            </div>
+                            <div class="blogPostData">
+                                <div class="blogPostDataInner">
+                                    <img src="img/blog/data.png" alt="">
+                                    <p>14.07.2015</p>
+                                </div>
+                                <div class="blogPostAuthorInner">
+                                    <img src="img/blog/list.png" alt="">
+                                    <p>Development</p>
+                                </div>
+                            </div>
+                            <div class="blogPostText">
+                                Dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                nisi ut aliquip ex ea commodo consequat...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blogButtonInner">
+                    <button class="blogButton">More view</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <section class="contact">
+            <div class="container">
+                <div class="contactInner">
+                    <div class="contactTitle">
+                        <h3 class="title">Contact Us</h3>
+                        <h3 class="subTitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</h3>
+                    </div>
+                    <address class="contactInfoInner">
+                        <div class="contactInfo">
+                            <div class="city block">
+                                <div class="styleImg">
+                                    <img src="img/contact/placeholder.png" alt="" class="contactIcon">
+                                </div>
+                                <p class="stringBlock">Nobinagar savar,Dhaka Bangladesh</p>
+                            </div>
+                            <div class="telephone block">
+                                <div class="styleImg">
+                                    <img src="img/contact/phone-call.png" alt="" class="contactIcon">
+                                </div>
+                                <p class="stringBlock">+8801743331996 +8801928737807</p>
+                            </div>
+                            <div class="email block">
+                                <div class="styleImg">
+                                    <img src="img/contact/mail.png" alt="" class="contactIcon">
+                                </div>
+                                <p class="stringBlock">quickmasud@gmail.com quickmasud@yahoo.com</p>
+                            </div>
+                        </div>
+                    </address>
+                    <form action="#" class="contactFormInner">
+                        <div class="formNameEmail">
+                            <input type="text" placeholder="Your NAME" class="contactFormName inputString">
+                            <input type="text" placeholder="Your Email" class="contactFormEmail inputString">
+                        </div>
+                        <textarea name="textarea" id="contactFormText" placeholder="Write Message"></textarea>
+                        <button class="contactFormButton">Send</button>
+
+                </div>
+            </div>
+            </form>
+            <div class="allRight">
+                <p>All Right Reserved 2017</p>
+            </div>
+        </section>
+    </footer>
+    <script src="./index.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
